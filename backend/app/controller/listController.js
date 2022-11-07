@@ -1,5 +1,38 @@
 const { List, Todo } = require("../models");
 
+const handleGetListById = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const userId = req.user.id;
+    const list = await List.findOne({
+      where: {
+        id,
+        userId,
+      },
+      include: [
+        {
+          model: Todo,
+        },
+      ],
+    });
+
+    if (!list) {
+      return res.status(404).json({
+        message: "List not found",
+      });
+    }
+
+    return res.status(200).json({
+      message: "List successfully fetched",
+      data: list,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message,
+    });
+  }
+};
+
 const handleGetList = async (req, res) => {
   try {
     const { id } = req.user;
@@ -121,4 +154,4 @@ const handleDeleteList = async (req, res) => {
   }
 };
 
-module.exports = { handleCreateList, handleUpdateList, handleGetList, handleDeleteList };
+module.exports = { handleCreateList, handleUpdateList, handleGetList, handleDeleteList, handleGetListById };
