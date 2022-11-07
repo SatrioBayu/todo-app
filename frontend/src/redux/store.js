@@ -1,7 +1,13 @@
-import { legacy_createStore as createStore, compose, applyMiddleware } from "redux";
+import { legacy_createStore as createStore, compose, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import userReducer from "./user/userReducer";
+import listReducer from "./list/listReducer";
 
-const store = createStore(userReducer, compose(applyMiddleware(thunk)));
+const rootReducer = combineReducers({
+  user: userReducer,
+  list: listReducer,
+});
+
+const store = createStore(rootReducer, compose(applyMiddleware(thunk)));
 
 export default store;

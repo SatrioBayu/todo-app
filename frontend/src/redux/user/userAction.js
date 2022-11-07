@@ -29,6 +29,7 @@ const fetchUser = (identifier) => {
           Authorization: `Bearer ${identifier}`,
         },
       });
+      localStorage.setItem("token", user.data.data.noIdentifier);
       dispatch(fetchUserSuccess(user));
     } catch (error) {
       dispatch(fetchUserFailed(error.message));

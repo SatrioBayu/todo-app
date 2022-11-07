@@ -1,10 +1,10 @@
-const initialState = {
+const initialUserState = {
   loading: false,
   user: null,
   error: "",
 };
 
-const userReducer = (state = initialState, action) => {
+const userReducer = (state = initialUserState, action) => {
   switch (action.type) {
     case "FETCH_USER_SUCCESS":
       return {
@@ -23,6 +23,8 @@ const userReducer = (state = initialState, action) => {
         loading: false,
         error: action.payload,
       };
+    default:
+      return state;
   }
 };
 
