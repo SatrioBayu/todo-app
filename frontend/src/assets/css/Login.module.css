@@ -1,0 +1,33 @@
+.bg {
+    background-color: #EBEDEF !important;
+    height: 100vh;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper * {
+    font-family: 'Poppins', sans-serif;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.isi {
+    background-color: #fff;
+    width: 50rem;
+}
+
+.secondary {
+    color: #727272;
+}
+
+.btn-login {
+    background-color: #205493;
+    color: white;
+    border-radius: 5px;
+}

@@ -1,0 +1,17 @@
+.invalid {
+    border: 1px solid #dd3f4b !important;
+}
+
+.invalid-text {
+    color: #dd3f4b;
+    font-size: small;
+}
+
+.small {
+    font-size: small;
+}
+
+.required::after {
+    content: " *";
+    color: red;
+}
