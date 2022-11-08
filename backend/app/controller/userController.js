@@ -69,12 +69,12 @@ const handleLogin = async (req, res) => {
         noIdentifier: identifier,
       });
       return res.status(200).json({
-        newUser,
+        data: newUser,
       });
     }
 
     return res.status(200).json({
-      user,
+      data: user,
     });
   } catch (error) {
     return res.status(404).json({
