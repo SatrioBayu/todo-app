@@ -9,20 +9,24 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
-  const [invalid, setInvalid] = useState(false);
+  const [invalid, setInvalid] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
     if (!identifier) {
-      setInvalid(true);
+      setInvalid("Identifier wajib diisi");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    if (identifier.length < 4) {
+      setInvalid("Identifier tidak boleh kurang dari 4");
+      return;
+    }
     const data = {
       identifier,
     };
@@ -65,7 +69,7 @@ const Login = () => {
               aria-describedby="basic-addon1"
             />
           </div>
-          {invalid && <p className={`${style["invalid-text"]}`}>Identifier wajib diisi</p>}
+          {invalid && <p className={`${style["invalid-text"]}`}>{invalid}</p>}
           {loading ? (
             <button disabled className={`btn ${styles["btn-login"]} px-4`}>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
