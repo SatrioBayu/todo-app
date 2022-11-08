@@ -37,12 +37,14 @@ const handleGetList = async (req, res) => {
   try {
     const { id } = req.user;
     const lists = await List.findAll({
+      order: [["id", "ASC"]],
       where: {
         userId: id,
       },
       include: [
         {
           model: Todo,
+          order: [["id", "ASC"]],
         },
       ],
     });
