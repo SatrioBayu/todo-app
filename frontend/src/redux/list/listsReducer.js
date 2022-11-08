@@ -6,6 +6,7 @@ const initialListsState = {
 
 const listsReducer = (state = initialListsState, action) => {
   switch (action.type) {
+    // FETCH ALL LIST ACTION
     case "FETCH_ALL_LIST_SUCCESS":
       return {
         ...state,

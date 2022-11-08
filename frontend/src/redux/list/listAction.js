@@ -1,6 +1,7 @@
 import axios from "axios";
 import fetchAllList from "./listsAction";
 
+// FETCH LIST ACTION TYPE
 const fetchListSuccess = (list) => {
   return {
     type: "FETCH_LIST_SUCCESS",
@@ -21,6 +22,7 @@ const fetchListFailed = (error) => {
   };
 };
 
+// ADD LIST ACTION TYPE
 const addListRequest = () => {
   return {
     type: "ADD_LIST_REQUEST",
@@ -34,6 +36,7 @@ const addListFailed = (error) => {
   };
 };
 
+// EDIT LIST ACTION TYPE
 const editListRequest = () => {
   return {
     type: "EDIT_LIST_REQUEST",
@@ -47,6 +50,7 @@ const editListFailed = (error) => {
   };
 };
 
+// DELETE LIST ACTION TYPE
 const deleteListRequest = () => {
   return {
     type: "DELETE_LIST_REQUEST",
@@ -60,6 +64,7 @@ const deleteListFailed = (error) => {
   };
 };
 
+// FETCH LIST ACTION
 const fetchListById = (id, identifier) => {
   return async (dispatch) => {
     dispatch(fetchListRequest);
@@ -76,6 +81,7 @@ const fetchListById = (id, identifier) => {
   };
 };
 
+// ADD LIST ACTION
 const addList = (identifier, data) => {
   return async (dispatch) => {
     dispatch(addListRequest);
@@ -92,6 +98,7 @@ const addList = (identifier, data) => {
   };
 };
 
+// EDIT LIST ACTION
 const editList = (id, identifier, data) => {
   return async (dispatch) => {
     dispatch(editListRequest);
@@ -108,6 +115,7 @@ const editList = (id, identifier, data) => {
   };
 };
 
+// DELETE LIST ACTION
 const deleteList = (id, identifier) => {
   return async (dispatch) => {
     dispatch(deleteListRequest);

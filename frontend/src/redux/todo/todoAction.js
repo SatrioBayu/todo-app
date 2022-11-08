@@ -1,6 +1,7 @@
 import axios from "axios";
 import { fetchListById } from "../index";
 
+// ADD TODO ACTION TYPE
 const addTodoRequest = () => {
   return {
     type: "ADD_TODO_REQUEST",
@@ -14,6 +15,7 @@ const addTodoFailed = (error) => {
   };
 };
 
+// EDIT TODO ACTION TYPE
 const editTodoRequest = () => {
   return {
     type: "EDIT_TODO_REQUEST",
@@ -27,6 +29,7 @@ const editTodoFailed = (error) => {
   };
 };
 
+// DELETE TODO ACTION TYPE
 const deleteTodoRequest = () => {
   return {
     type: "DELETE_TODO_REQUEST",
@@ -40,6 +43,7 @@ const deleteTodoFailed = (error) => {
   };
 };
 
+// ADD TODO ACTION
 const addTodo = (identifier, data) => {
   return async (dispatch) => {
     dispatch(addTodoRequest);
@@ -56,6 +60,7 @@ const addTodo = (identifier, data) => {
   };
 };
 
+// EDIT TODO ACTION
 const editTodo = (id, identifier, data) => {
   return async (dispatch) => {
     dispatch(editTodoRequest);
@@ -72,6 +77,7 @@ const editTodo = (id, identifier, data) => {
   };
 };
 
+// DELETE TODO ACTION
 const deleteTodo = (id, listId, identifier) => {
   return async (dispatch) => {
     dispatch(deleteTodoRequest);

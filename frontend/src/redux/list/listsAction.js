@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// FETCH ALL LIST ACTION TYPE
 const fetchAllListSuccess = (list) => {
   return {
     type: "FETCH_ALL_LIST_SUCCESS",
@@ -20,6 +21,7 @@ const fetchAllListFailed = (error) => {
   };
 };
 
+// FETCH ALL LIST ACTION
 const fetchAllList = (identifier) => {
   return async (dispatch) => {
     try {

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// GET USER ACTION TYPE
 const fetchUserSuccess = (user) => {
   return {
     type: "FETCH_USER_SUCCESS",
@@ -20,6 +21,7 @@ const fetchUserFailed = (error) => {
   };
 };
 
+// LOGIN USER ACTION TYPE
 const loginRequest = () => {
   return {
     type: "LOGIN_REQUEST",
@@ -32,6 +34,7 @@ const loginFailed = () => {
   };
 };
 
+// LOGOUT USER ACTION TYPE
 const logoutRequest = () => {
   return {
     type: "LOGOUT_REQUEST",
@@ -45,6 +48,7 @@ const logoutSuccess = (user) => {
   };
 };
 
+// GET USER ACTION
 const fetchUser = (identifier) => {
   return async (dispatch) => {
     dispatch(fetchUserRequest);
@@ -62,6 +66,7 @@ const fetchUser = (identifier) => {
   };
 };
 
+// LOGIN USER ACTION
 const login = (data) => {
   return async (dispatch) => {
     dispatch(loginRequest);
@@ -75,6 +80,7 @@ const login = (data) => {
   };
 };
 
+// LOGOUT USER ACTION
 const logout = (user) => {
   return async (dispatch) => {
     dispatch(logoutRequest);

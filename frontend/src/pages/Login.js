@@ -8,18 +8,22 @@ import { login } from "../redux";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // Local State
   const [identifier, setIdentifier] = useState("");
   const [invalid, setInvalid] = useState("");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Handle Login Before Submit
   const handleLogin = () => {
     if (!identifier) {
       setInvalid("Identifier wajib diisi");
     }
   };
 
+  // Handle Login Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -46,12 +50,6 @@ const Login = () => {
       <div className={`${styles["isi"]} px-3 py-5`}>
         <h3 className={`fw-bold`}>Todo App</h3>
         <p className={`${styles["secondary"]}`}>Login</p>
-        {/* <p>{state}</p> */}
-        {/* {invalid && (
-          <div class="alert alert-danger" role="alert">
-            {invalid}
-          </div>
-        )} */}
         <form onSubmit={handleSubmit}>
           <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">

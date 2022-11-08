@@ -6,6 +6,7 @@ const initialUserState = {
 
 const userReducer = (state = initialUserState, action) => {
   switch (action.type) {
+    // GET USER ACTION TYPE
     case "FETCH_USER_SUCCESS":
       return {
         ...state,
@@ -23,6 +24,7 @@ const userReducer = (state = initialUserState, action) => {
         loading: false,
         error: action.payload,
       };
+    // LOGIN USER ACTION TYPE
     case "LOGIN_REQUEST":
       return {
         ...state,
@@ -33,6 +35,7 @@ const userReducer = (state = initialUserState, action) => {
         ...state,
         error: action.payload,
       };
+    // LOGOUT USER ACTION TYPE
     case "LOGOUT_REQUEST":
       return {
         ...state,

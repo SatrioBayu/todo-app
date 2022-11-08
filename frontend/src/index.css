@@ -50,10 +50,13 @@ textarea::placeholder {
   display: flex;
 }
 
+/* Sidebar */
 .hmgiTB {
   height: 100vh !important;
   overflow-y: scroll !important;
 }
+
+/* Scrollbar */
 ::-webkit-scrollbar{
   width: 5px;
 }
@@ -67,10 +70,11 @@ textarea::placeholder {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* Toggler Sidebar Button */
 .toggler{
   display: none;
 }
-
 @media (max-width: 576px) {
   .toggler{
     display: block;

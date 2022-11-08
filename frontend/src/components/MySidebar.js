@@ -7,11 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { fetchUser, fetchAllList, addList, logout } from "../redux";
 
 const MySideBar = () => {
+  // Local State
+  const [title, setTitle] = useState("");
+  const [loading, setLoading] = useState(false);
+  // Access State From React-redux
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [title, setTitle] = useState("");
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUser(localStorage.getItem("token")));

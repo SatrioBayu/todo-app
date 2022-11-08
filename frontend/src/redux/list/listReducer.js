@@ -6,6 +6,7 @@ const initialListState = {
 
 const listReducer = (state = initialListState, action) => {
   switch (action.type) {
+    // FETCH LIST ACTION
     case "FETCH_LIST_SUCCESS":
       return {
         ...state,
@@ -22,6 +23,7 @@ const listReducer = (state = initialListState, action) => {
         loading: false,
         error: action.payload,
       };
+    // ADD LIST ACTION
     case "ADD_LIST_REQUEST":
       return {
         ...state,
@@ -32,6 +34,7 @@ const listReducer = (state = initialListState, action) => {
         loading: false,
         error: action.payload,
       };
+    // EDIT LIST ACTION
     case "EDIT_LIST_REQUEST":
       return {
         ...state,
@@ -43,6 +46,7 @@ const listReducer = (state = initialListState, action) => {
         loading: false,
         error: action.payload,
       };
+    // DELETE LIST ACTION
     case "DELETE_LIST_REQUEST":
       return {
         ...state,

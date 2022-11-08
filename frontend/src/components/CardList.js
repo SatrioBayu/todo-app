@@ -50,9 +50,6 @@ const CardList = () => {
                     <button value={list.id} data-bs-toggle="modal" data-bs-target={`#exampleModal-${list.id}`} className="btn btn-warning">
                       Update
                     </button>
-                    {/* <button onClick={(e) => handleDelete(e.target.value)} value={list.id} className="btn btn-danger">
-                      Delete
-                    </button> */}
                   </div>
                 </div>
                 <ModalEdit data={list} onEditSave={handleEdit} />

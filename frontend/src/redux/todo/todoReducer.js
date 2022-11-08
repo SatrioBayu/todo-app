@@ -5,6 +5,7 @@ const initialTodoState = {
 
 const todoReducer = (state = initialTodoState, action) => {
   switch (action.type) {
+    // ADD TODO ACTION TYPE
     case "ADD_TODO_REQUEST":
       return {
         ...state,
@@ -16,6 +17,7 @@ const todoReducer = (state = initialTodoState, action) => {
         error: action.payload,
         loading: false,
       };
+    // EDIT TODO ACTION TYPE
     case "EDIT_TODO_REQUEST":
       return {
         ...state,
@@ -27,6 +29,7 @@ const todoReducer = (state = initialTodoState, action) => {
         error: action.payload,
         loading: false,
       };
+    // DELETE TODO ACTION TYPE
     case "DELETE_TODO_REQUEST":
       return {
         ...state,

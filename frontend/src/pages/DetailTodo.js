@@ -10,11 +10,14 @@ import MySideBar from "../components/MySidebar";
 import { useProSidebar } from "react-pro-sidebar";
 
 const DetailTodo = () => {
-  const list = useSelector((state) => state.list);
-  const dispatch = useDispatch();
-  const { id } = useParams();
+  // Local State
   const [step, setStep] = useState("");
   const [loading, setLoading] = useState(false);
+  // Id in URL
+  const { id } = useParams();
+  // Access State From React-redux
+  const list = useSelector((state) => state.list);
+  const dispatch = useDispatch();
   const { toggleSidebar } = useProSidebar();
 
   useEffect(() => {
