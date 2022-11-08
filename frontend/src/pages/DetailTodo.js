@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchListById, addTodo, deleteTodo, editTodo } from "../redux";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare, faTrash, faPlusCircle, faListAlt } from "@fortawesome/free-solid-svg-icons";
 import ModalEditTodo from "../components/ModalEditTodo";
 import MySideBar from "../components/MySidebar";
 import { useProSidebar } from "react-pro-sidebar";
