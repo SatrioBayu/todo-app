@@ -1,5 +1,5 @@
 const initialListsState = {
-  loading: false,
+  loading: true,
   lists: null,
   error: "",
 };
@@ -15,12 +15,12 @@ const listsReducer = (state = initialListsState, action) => {
     case "FETCH_ALL_LIST_REQUEST":
       return {
         ...state,
-        loading: true,
       };
     case "FETCH_ALL_LIST_FAILED":
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     default:
       return state;

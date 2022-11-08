@@ -1,5 +1,5 @@
 const initialUserState = {
-  loading: false,
+  loading: true,
   user: null,
   error: "",
 };

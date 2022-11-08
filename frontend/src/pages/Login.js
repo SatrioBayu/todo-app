@@ -3,18 +3,16 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "../assets/css/Login.module.css";
 import style from "../assets/css/Form.module.css";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUser, login } from "../redux";
+import { useDispatch } from "react-redux";
+import { login } from "../redux";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const state = useSelector((state) => state.user);
   const [identifier, setIdentifier] = useState("");
   const [invalid, setInvalid] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  console.log(state);
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
     if (!identifier) {
@@ -24,13 +22,16 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = {
       identifier,
     };
     try {
       await dispatch(login(data));
+      setLoading(false);
       navigate("/home");
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -65,19 +66,16 @@ const Login = () => {
             />
           </div>
           {invalid && <p className={`${style["invalid-text"]}`}>Identifier wajib diisi</p>}
-          {/* {loading ? (
-            <button className={`btn ${styles["btn-login"]} px-4`} type="button" disabled>
+          {loading ? (
+            <button disabled className={`btn ${styles["btn-login"]} px-4`}>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              Loading...
+              Login ...
             </button>
           ) : (
             <button onClick={handleLogin} className={`btn ${styles["btn-login"]} px-4`}>
               Login
             </button>
-          )} */}
-          <button onClick={handleLogin} className={`btn ${styles["btn-login"]} px-4`}>
-            Login
-          </button>
+          )}
         </form>
       </div>
     </div>

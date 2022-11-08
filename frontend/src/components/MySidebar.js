@@ -11,8 +11,7 @@ const MySideBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-
-  console.log(state);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     dispatch(fetchUser(localStorage.getItem("token")));
@@ -21,14 +20,17 @@ const MySideBar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = {
       title,
     };
     try {
-      dispatch(addList(localStorage.getItem("token"), data));
+      await dispatch(addList(localStorage.getItem("token"), data));
+      setLoading(false);
       setTitle("");
     } catch (error) {
       console.error(error.message);
+      setLoading(false);
     }
   };
 
@@ -36,6 +38,7 @@ const MySideBar = () => {
     await dispatch(logout(null));
     localStorage.removeItem("token");
     navigate("/");
+    window.location.reload();
   };
 
   return (
@@ -70,9 +73,15 @@ const MySideBar = () => {
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                   />
-                  <button type="submit" class="input-group-text">
-                    <FontAwesomeIcon icon={faPlusCircle} />
-                  </button>
+                  {loading ? (
+                    <button disabled class="input-group-text">
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    </button>
+                  ) : (
+                    <button type="submit" class="input-group-text">
+                      <FontAwesomeIcon icon={faPlusCircle} />
+                    </button>
+                  )}
                 </div>
               </form>
             </MenuItem>

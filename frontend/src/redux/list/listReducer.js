@@ -1,5 +1,5 @@
 const initialListState = {
-  loading: false,
+  loading: true,
   list: null,
   error: "",
 };
@@ -15,7 +15,6 @@ const listReducer = (state = initialListState, action) => {
     case "FETCH_LIST_REQUEST":
       return {
         ...state,
-        loading: true,
       };
     case "FETCH_LIST_FAILED":
       return {
@@ -26,7 +25,6 @@ const listReducer = (state = initialListState, action) => {
     case "ADD_LIST_REQUEST":
       return {
         ...state,
-        loading: true,
       };
     case "ADD_LIST_FAILED":
       return {

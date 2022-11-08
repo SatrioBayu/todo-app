@@ -67,3 +67,12 @@ textarea::placeholder {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+.toggler{
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .toggler{
+    display: block;
+  }
+}

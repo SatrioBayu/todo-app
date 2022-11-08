@@ -14,6 +14,7 @@ const todoReducer = (state = initialTodoState, action) => {
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     case "EDIT_TODO_REQUEST":
       return {
@@ -24,6 +25,7 @@ const todoReducer = (state = initialTodoState, action) => {
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     case "DELETE_TODO_REQUEST":
       return {
@@ -34,6 +36,7 @@ const todoReducer = (state = initialTodoState, action) => {
       return {
         ...state,
         error: action.payload,
+        loading: false,
       };
     default:
       return state;

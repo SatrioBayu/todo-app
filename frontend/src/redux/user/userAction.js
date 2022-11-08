@@ -67,8 +67,7 @@ const login = (data) => {
     dispatch(loginRequest);
     try {
       const user = await axios.post("https://fsw-todo-backend.herokuapp.com/login", data);
-      // console.log(user.data.user.noIdentifier);
-      localStorage.setItem("token", user.data.user.noIdentifier);
+      localStorage.setItem("token", user.data.data.noIdentifier);
       dispatch(fetchUserSuccess(user));
     } catch (error) {
       dispatch(loginFailed(error.message));

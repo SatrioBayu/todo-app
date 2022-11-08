@@ -22,8 +22,8 @@ const fetchAllListFailed = (error) => {
 
 const fetchAllList = (identifier) => {
   return async (dispatch) => {
-    dispatch(fetchAllListRequest);
     try {
+      dispatch(fetchAllListRequest);
       const list = await axios.get("https://fsw-todo-backend.herokuapp.com/list", {
         headers: {
           Authorization: `Bearer ${identifier}`,
