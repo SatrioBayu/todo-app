@@ -25,6 +25,7 @@ const Login = () => {
     setLoading(true);
     if (identifier.length < 4) {
       setInvalid("Identifier tidak boleh kurang dari 4");
+      setLoading(false);
       return;
     }
     const data = {
