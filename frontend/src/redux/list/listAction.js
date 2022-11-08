@@ -1,4 +1,5 @@
 import axios from "axios";
+import fetchAllList from "./listsAction";
 
 const fetchListSuccess = (list) => {
   return {
@@ -59,27 +60,11 @@ const deleteListFailed = (error) => {
   };
 };
 
-const fetchList = (identifier) => {
-  return async (dispatch) => {
-    dispatch(fetchListRequest);
-    try {
-      const list = await axios.get("http://localhost:8000/list", {
-        headers: {
-          Authorization: `Bearer ${identifier}`,
-        },
-      });
-      dispatch(fetchListSuccess(list));
-    } catch (error) {
-      dispatch(fetchListFailed(error.message));
-    }
-  };
-};
-
 const fetchListById = (id, identifier) => {
   return async (dispatch) => {
     dispatch(fetchListRequest);
     try {
-      const list = await axios.get(`http://localhost:8000/list/${id}`, {
+      const list = await axios.get(`https://fsw-todo-backend.herokuapp.com/list/${id}`, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
@@ -95,12 +80,12 @@ const addList = (identifier, data) => {
   return async (dispatch) => {
     dispatch(addListRequest);
     try {
-      const list = await axios.post("http://localhost:8000/list", data, {
+      const list = await axios.post("https://fsw-todo-backend.herokuapp.com/list", data, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
       });
-      dispatch(fetchList(identifier));
+      dispatch(fetchAllList(identifier));
     } catch (error) {
       dispatch(addListFailed(error.message));
     }
@@ -111,12 +96,12 @@ const editList = (id, identifier, data) => {
   return async (dispatch) => {
     dispatch(editListRequest);
     try {
-      const list = await axios.put(`http://localhost:8000/list/${id}`, data, {
+      const list = await axios.put(`https://fsw-todo-backend.herokuapp.com/list/${id}`, data, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
       });
-      dispatch(fetchList(identifier));
+      dispatch(fetchAllList(identifier));
     } catch (error) {
       dispatch(editListFailed(error.message));
     }
@@ -127,16 +112,16 @@ const deleteList = (id, identifier) => {
   return async (dispatch) => {
     dispatch(deleteListRequest);
     try {
-      const list = await axios.delete(`http://localhost:8000/list/${id}`, {
+      const list = await axios.delete(`https://fsw-todo-backend.herokuapp.com/list/${id}`, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
       });
-      dispatch(fetchList(identifier));
+      dispatch(fetchAllList(identifier));
     } catch (error) {
       dispatch(deleteListFailed(error.message));
     }
   };
 };
 
-export { fetchList, fetchListById, addList, editList, deleteList };
+export { fetchListById, addList, editList, deleteList };

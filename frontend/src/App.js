@@ -5,33 +5,36 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Protected from "./components/Protected";
 import DetailTodo from "./pages/DetailTodo";
+import { ProSidebarProvider } from "react-pro-sidebar";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Router>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route
-              path="/home"
-              element={
-                <Protected>
-                  <Home />
-                </Protected>
-              }
-            />
-            <Route
-              path="/list/:id"
-              element={
-                <Protected>
-                  <DetailTodo />
-                </Protected>
-              }
-            />
-          </Routes>
-        </Router>
-      </div>
+      <ProSidebarProvider>
+        <div className="App">
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route
+                path="/home"
+                element={
+                  <Protected>
+                    <Home />
+                  </Protected>
+                }
+              />
+              <Route
+                path="/list/:id"
+                element={
+                  <Protected>
+                    <DetailTodo />
+                  </Protected>
+                }
+              />
+            </Routes>
+          </Router>
+        </div>
+      </ProSidebarProvider>
     </Provider>
   );
 }

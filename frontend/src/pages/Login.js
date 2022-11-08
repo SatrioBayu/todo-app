@@ -3,15 +3,18 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "../assets/css/Login.module.css";
 import style from "../assets/css/Form.module.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { fetchUser } from "../redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUser, login } from "../redux";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const state = useSelector((state) => state.user);
   const [identifier, setIdentifier] = useState("");
   const [invalid, setInvalid] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log(state);
 
   const handleLogin = () => {
     if (!identifier) {
@@ -21,10 +24,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const data = {
+      identifier,
+    };
     try {
-      await dispatch(fetchUser(identifier));
+      await dispatch(login(data));
       navigate("/home");
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

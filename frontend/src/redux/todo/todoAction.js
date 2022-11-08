@@ -44,7 +44,7 @@ const addTodo = (identifier, data) => {
   return async (dispatch) => {
     dispatch(addTodoRequest);
     try {
-      await axios.post("http://localhost:8000/todo", data, {
+      await axios.post("https://fsw-todo-backend.herokuapp.com/todo", data, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
@@ -60,7 +60,7 @@ const editTodo = (id, identifier, data) => {
   return async (dispatch) => {
     dispatch(editTodoRequest);
     try {
-      await axios.put(`http://localhost:8000/todo/${id}`, data, {
+      await axios.put(`https://fsw-todo-backend.herokuapp.com/todo/${id}`, data, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },
@@ -76,7 +76,7 @@ const deleteTodo = (id, listId, identifier) => {
   return async (dispatch) => {
     dispatch(deleteTodoRequest);
     try {
-      await axios.delete(`http://localhost:8000/todo/${id}`, {
+      await axios.delete(`https://fsw-todo-backend.herokuapp.com/todo/${id}`, {
         headers: {
           Authorization: `Bearer ${identifier}`,
         },

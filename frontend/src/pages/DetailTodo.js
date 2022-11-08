@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import styles from "../assets/css/Form.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUser, fetchListById, addTodo, deleteTodo, editTodo } from "../redux";
+import { fetchListById, addTodo, deleteTodo, editTodo } from "../redux";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import ModalEditTodo from "../components/ModalEditTodo";
+import MySideBar from "./MySidebar";
 
 const DetailTodo = () => {
   const list = useSelector((state) => state.list);
@@ -50,9 +51,10 @@ const DetailTodo = () => {
 
   return (
     <div className="main">
+      <MySideBar />
       {list.list && (
         <div className="container mt-5">
-          <nav aria-label="breadcrumb">
+          {/* <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <a href="/home">Home</a>
@@ -61,7 +63,7 @@ const DetailTodo = () => {
                 {list.list.data.data.title}
               </li>
             </ol>
-          </nav>
+          </nav> */}
           <div class="row">
             <div class="col">
               <h3 className="text-center mb-4">{list.list.data.data.title}</h3>
