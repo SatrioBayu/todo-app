@@ -50,4 +50,13 @@ tergantung HTTP Method.
 
 **Client:** React, Redux, Bootstrap
 
-**Server:** Node, Express
+**Server:** Node, Express, Sequelize
+
+## Screenshots
+
+![App Screenshot](https://res.cloudinary.com/final-project-fsw-3/image/upload/v1667923447/Bukti_Error_Heroku_rsmp9z.png)
+
+Screenshot diatas merupakan bukti mengenai penjelasan
+video saya yang terpotong dikarenakan dari heroku
+terdapat maintenance dan membuat database credential
+diubah.
