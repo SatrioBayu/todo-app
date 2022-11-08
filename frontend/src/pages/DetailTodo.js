@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrash, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import ModalEditTodo from "../components/ModalEditTodo";
 import MySideBar from "../components/MySidebar";
+import { useProSidebar } from "react-pro-sidebar";
 
 const DetailTodo = () => {
   const list = useSelector((state) => state.list);
@@ -14,6 +15,7 @@ const DetailTodo = () => {
   const { id } = useParams();
   const [step, setStep] = useState("");
   const [loading, setLoading] = useState(false);
+  const { toggleSidebar } = useProSidebar();
 
   useEffect(() => {
     dispatch(fetchListById(id, localStorage.getItem("token")));
@@ -66,6 +68,9 @@ const DetailTodo = () => {
         <>
           {list.list && (
             <div className="container my-5">
+              <button className="btn toggler" onClick={() => toggleSidebar()}>
+                <FontAwesomeIcon icon={faListAlt} size="2xl" />
+              </button>
               <div class="row">
                 <div class="col">
                   <h3 className="text-center mb-4">{list.list.data.data.title}</h3>
