@@ -34,7 +34,7 @@ const Login = () => {
     try {
       await dispatch(login(data));
       setLoading(false);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       setLoading(false);
       console.log(error);

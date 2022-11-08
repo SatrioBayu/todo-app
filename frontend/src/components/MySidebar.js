@@ -46,7 +46,7 @@ const MySideBar = () => {
       {state.user.user && state.lists.lists && (
         <Sidebar breakPoint="sm" backgroundColor="rgba(218, 223, 225)">
           <Menu>
-            <a href="/home">
+            <a href="/">
               <MenuItem>
                 <FontAwesomeIcon icon={faUser} />
                 &nbsp; {state.user.user.data.data.noIdentifier}
