@@ -11,6 +11,10 @@
     font-size: small;
 }
 
+.trash{
+    color: red;
+}
+
 .required::after {
     content: " *";
     color: red;

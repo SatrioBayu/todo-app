@@ -75,6 +75,22 @@ const fetchList = (identifier) => {
   };
 };
 
+const fetchListById = (id, identifier) => {
+  return async (dispatch) => {
+    dispatch(fetchListRequest);
+    try {
+      const list = await axios.get(`http://localhost:8000/list/${id}`, {
+        headers: {
+          Authorization: `Bearer ${identifier}`,
+        },
+      });
+      dispatch(fetchListSuccess(list));
+    } catch (error) {
+      dispatch(fetchListFailed(error.message));
+    }
+  };
+};
+
 const addList = (identifier, data) => {
   return async (dispatch) => {
     dispatch(addListRequest);
@@ -123,4 +139,4 @@ const deleteList = (id, identifier) => {
   };
 };
 
-export { fetchList, addList, editList, deleteList };
+export { fetchList, fetchListById, addList, editList, deleteList };

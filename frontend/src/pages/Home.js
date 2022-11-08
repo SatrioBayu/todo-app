@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchUser, fetchList, addList } from "../redux";
 import { useState } from "react";
 import CardList from "../components/CardList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const state = useSelector((state) => state);
@@ -40,20 +42,19 @@ const Home = () => {
         {state.user.user && state.list.list && (
           <>
             <h1>Halo {state.user.user.data.data.noIdentifier}</h1>
-            <h2 className="text-center">Todo List</h2>
-            <form onSubmit={handleSubmit}>
-              <div class="mb-3">
-                <label htmlFor="exampleInputEmail1" class="form-label">
-                  List
-                </label>
-                <input required type="text" value={title} onChange={(e) => setTitle(e.target.value)} class="form-control" placeholder="Exercise" id="exampleInputEmail1" aria-describedby="emailHelp" />
-              </div>
-              <button type="submit" class="btn btn-primary">
-                Add
-              </button>
-            </form>
-            <br />
+            <h2 className="text-center mb-3">Todo List</h2>
             <CardList />
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="exampleInputEmail1" class="form-label">
+                New List
+              </label>
+              <div class="input-group mb-3">
+                <input required type="text" value={title} onChange={(e) => setTitle(e.target.value)} class="form-control" placeholder="Exercise" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                <button type="submit" class="input-group-text">
+                  <FontAwesomeIcon icon={faPlusCircle} />
+                </button>
+              </div>
+            </form>
             <button onClick={handleLogout} className="btn btn-primary">
               Log Out
             </button>

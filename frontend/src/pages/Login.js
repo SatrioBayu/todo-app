@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styles from "../assets/css/Login.module.css";
 import style from "../assets/css/Form.module.css";
 import { useState } from "react";
