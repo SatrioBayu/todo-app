@@ -4,12 +4,14 @@ const userController = require("./controller/userController");
 const listController = require("./controller/listController");
 const todoController = require("./controller/todoController");
 
+// Init
 router.get("/", (req, res) => {
   res.send({
     message: "Server is running",
   });
 });
 
+// User
 router.get("/profile", userController.authorize, userController.handleGetUser);
 router.post("/login", userController.handleLogin);
 
